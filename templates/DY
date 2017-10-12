@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dog Years</title>
+  </head>
+  <body>
+
+    <form action='/response'>
+      What is your dog's age in human years?<br>
+      <input type="text" name="DY">
+      <br><br>
+      <input type="submit">
+    </form>
+
+  </body>
+</html>
