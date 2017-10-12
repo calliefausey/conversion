@@ -6,16 +6,29 @@ app = Flask(__name__) #__name__ = "__main__" if this is the file that was run.  
 def render_main():
     return render_template('home.html')
 
+@app.route("/dog-years")
+def render_main():
+    return render_template('dogyears.html')
+
+@app.route("/cat-years")
+def render_main():
+    return render_template('catyears.html')
+
+@app.route("/fish-years")
+def render_main():
+    return render_template('fishyears.html')
+
 @app.route("/response")
 def render_response():
-    color = request.args[ 'color' ]
+    if 'dogyears' in request.args:
     #The request object stores info about the request sent to the server
     #args is a multiplicit (like a dictionary but can have multiple values for the same key)
     #The info in args is visible in the url for the page being requested (ex. .../response)
-    if color == 'pink':
-        reply = "That's my favorite color too!"
+        reply = float(request.args['DY'])*7
+    elif 'catyears' in request.args:
+        reply = float(request.args['CY'])*4
     else:
-        reply = "My favorite color is pink."
+        reply = float(request.args['FY'])*18
     return render_template('response.html', response = reply)
     
 if __name__=="__main__":
