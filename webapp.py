@@ -7,15 +7,15 @@ def render_main():
     return render_template('home.html')
 
 @app.route("/dog-years")
-def render_main():
+def render_dog_years():
     return render_template('dogyears.html')
 
 @app.route("/cat-years")
-def render_main():
+def render_cat_years():
     return render_template('catyears.html')
 
 @app.route("/fish-years")
-def render_main():
+def render_fish_years():
     return render_template('fishyears.html')
 
 @app.route("/response")
