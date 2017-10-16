@@ -20,16 +20,19 @@ def render_fish_years():
 
 @app.route("/response")
 def render_response():
-    if 'DY' in request.args:
-    #The request object stores info about the request sent to the server
-    #args is a multiplicit (like a dictionary but can have multiple values for the same key)
-    #The info in args is visible in the url for the page being requested (ex. .../response)
-        reply = float(request.args['DY'])*7
-    elif 'CY' in request.args:
-        reply = float(request.args['CY'])*4
-    else:
-        reply = float(request.args['FY'])*18
-    return render_template('response.html', response = reply)
+    try:
+        if 'DY' in request.args:
+        #The request object stores info about the request sent to the server
+        #args is a multiplicit (like a dictionary but can have multiple values for the same key)
+        #The info in args is visible in the url for the page being requested (ex. .../response)
+            reply = float(request.args['DY'])*7
+        elif 'CY' in request.args:
+            reply = float(request.args['CY'])*4
+        else:
+            reply = float(request.args['FY'])*18
+        return render_template('response.html', response = reply)
+    except:
+        return render_template('error.html')
     
     
 if __name__=="__main__":
