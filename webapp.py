@@ -20,7 +20,6 @@ def render_fish_years():
 
 @app.route("/response")
 def render_response():
-    try:
     if 'DY' in request.args:
     #The request object stores info about the request sent to the server
     #args is a multiplicit (like a dictionary but can have multiple values for the same key)
@@ -31,8 +30,7 @@ def render_response():
     else:
         reply = float(request.args['FY'])*18
     return render_template('response.html', response = reply)
-    except:
-        print "Not a valid input!"
+    
     
 if __name__=="__main__":
     app.run(debug=False, port=54321)
